@@ -15,7 +15,7 @@ The use case is this:
 - [Usage](#usage)
   - [Setup](#setup)
   - [Renewals](#renewals)
-- [Safety & Security](#safety---security)
+- [Safety & Security](#safety--security)
 - [TODOs](#todos)
 - [NOTDOs](#notdos)
 - [Contribute](#contribute)
