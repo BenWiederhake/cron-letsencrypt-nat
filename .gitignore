@@ -1,0 +1,9 @@
+# Folders are intended for the per-domain secret keys.
+# Prevent mistakes by ingoring all folders:
+/*/
+
+# Also, *definitely* ignore anything that looks like a key.
+*.csr
+*.key
+private_key.der
+private_key.json
