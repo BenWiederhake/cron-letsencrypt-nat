@@ -2,6 +2,9 @@
 # Prevent mistakes by ingoring all folders:
 /*/
 
+# Any custom hooks
+/local_hook_*
+
 # Also, *definitely* ignore anything that looks like a key.
 *.csr
 *.key

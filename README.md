@@ -88,6 +88,14 @@ Plus all the "security" arguments:
 - Because `renew.sh` waits for a random amount of time, an attacker would have a hard time predicting when exactly to look at your port 80. And even if they correctly time it, the presence of an empty `index.html` file effectively disables listings.
 - `python3 -m http.server` is reasonably mature and well-maintained, and although it ["only implements basic security checks"](https://docs.python.org/3/library/http.server.html) like disallowing path traversal, there is not much more to get anyway.
 
+### Furthermore
+
+- If Let's Encrypt works nicely for you and you experience no hiccups, you should think about adding a [DNS CAA record](https://ma.ttias.be/caa-checking-becomes-mandatory-ssltls-certificates/), in most cases `128 issue "letsencrypt.org"` is appropriate.
+- If you're comfortable meddling with your server's cipher suite and can risk causing some trouble for some users (especially old browsers and weird crawlers), you should consider setting your suite to something more strict, like `ALL:!SHA1:!PSK:!RSA:!aNULL:!eNULL:!SRP`. I'm aware that under most configurations, parts of this are redundant. This seems more like an artform to me, especially because `HIGH` does not list several high-security ciphers. If you also want to exclude CBC, you can set it to this monstrosity:
+```
+ALL:!SHA1:!PSK:!RSA:!aNULL:!eNULL:!SRP:-DHE-DSS-AES128-SHA256:-DHE-DSS-AES256-SHA256:-DHE-RSA-AES128-SHA256:-DHE-RSA-AES256-SHA256:-ECDHE-ECDSA-AES128-SHA256:-ECDHE-ECDSA-AES256-SHA384:-ECDHE-RSA-AES128-SHA256:-ECDHE-RSA-AES256-SHA384
+```
+
 ## TODOs
 
 I don't intend to change it much, once it runs.
