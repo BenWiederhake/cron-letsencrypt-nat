@@ -46,13 +46,13 @@ git add signed_chain.crt tls_cert.pem
 git commit -m "Add dummy files"
 
 # Try to push, or tell when the git repo couldn't be guessed:
-git remote add origin ssh://private_git/cert-"${domain}".git
+git remote add origin ssh://private_git/cert_"${domain}".git
 git push -u origin master || {
     # Don't echo the echo command.
     set +x
     echo "Look's like 'ssh://private_git' isn't in your ssh config."
     echo "Before you continue, configure upstream properly, for example:"
-    echo "    git remote set-url origin ssh://internal_git/cert-${domain}.git"
+    echo "    git remote set-url origin ssh://internal_git/cert_${domain}.git"
     echo "'exit 1'ing for better visibility, even though the script was successful."
     exit 1
 }
