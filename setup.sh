@@ -40,6 +40,11 @@ openssl req -new -sha256 -key domain.key -subj "/CN=${domain}" > domain.csr
 git add account.key domain.key domain.csr
 git commit -m "Generate private keys"
 
+# Prepare repo for resulting files (this makes "renew.sh" easier)
+touch signed_chain.crt tls_cert.pem
+git add signed_chain.crt tls_cert.pem
+git commit -m "Add dummy files"
+
 # Try to push, or tell when the git repo couldn't be guessed:
 git remote add origin ssh://private_git/cert-"${domain}".git
 git push -u origin master || {

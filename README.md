@@ -85,7 +85,7 @@ Plus all the "security" arguments:
 - Obviously, be careful about permissions, especially with the folders and the git repository. No security can help if instead of a private secret private git repo you use a public github repo.
 - If you insist on running this as root, you would run `acme-tiny.py` as root, which [they don't recommend](https://github.com/diafygi/acme-tiny#permissions).
 - Theoretically `acme-tiny.py` [could](https://github.com/diafygi/acme-tiny#permissions) read your `domain.key`, but it [doesn't](https://github.com/diafygi/acme-tiny/blob/master/acme_tiny.py).
-- Because `renew.sh` waits for a random amount of time, an attacker would have a hard time predicting when exactly to look at your port 80. And even if they correctly time it, the presence of an empty `index.html` file effectively disables listings. And even if the attacker guesses that correctly, they can merely prove that you're currently trying to verify yourself to Let's Encrypt, which is the whole point of this endeavor.
+- Because `renew.sh` waits for a random amount of time, an attacker would have a hard time predicting when exactly to look at your port 80. And even if they correctly time it, the presence of an empty `index.html` file effectively disables listings.
 - `python3 -m http.server` is reasonably mature and well-maintained, and although it ["only implements basic security checks"](https://docs.python.org/3/library/http.server.html) like disallowing path traversal, there is not much more to get anyway.
 
 ## TODOs

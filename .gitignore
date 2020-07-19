@@ -5,5 +5,6 @@
 # Also, *definitely* ignore anything that looks like a key.
 *.csr
 *.key
+*.pem
 private_key.der
 private_key.json
