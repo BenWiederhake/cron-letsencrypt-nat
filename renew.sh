@@ -45,7 +45,7 @@ touch "${HTTPDIR}"/.well-known/acme-challenge/index.html
 ( /usr/bin/timeout -k 55s 50s python3 -m http.server -d "${HTTPDIR}" "${port}" || true ; rm -rf "${HTTPDIR}" ) &
 sleep 0.5 # Just in case the python core libs load slower than acme-tiny (!)
 /usr/bin/time acme-tiny --account-key ./account.key --csr ./domain.csr \
-          --acme-dir http/.well-known/acme-challenge/ > ./signed_chain.crt
+          --acme-dir "${HTTPDIR}"/.well-known/acme-challenge/ > ./signed_chain.crt
 # The "time" shows you how much slack there is regarding the server timeout.
 ! [ -x ../local_hook_post_verify ] || ../local_hook_post_verify
 rm -rf "${HTTPDIR}"
