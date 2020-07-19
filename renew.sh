@@ -67,7 +67,7 @@ git commit --quiet -m "Auto-update on $(date)"
 
 # Push to server
 ! [ -x ../local_hook_pre_push ] || ../local_hook_pre_push
-git push
+git push origin master
 ! [ -x ../local_hook_post_push ] || ../local_hook_post_push
 
 ! [ -x ../local_hook_final ] || ../local_hook_final
